@@ -12,7 +12,8 @@ int main(int argc, const char* argv[])
 
 	unsigned char bArray[255] = { 0 };
 
-	userSelection = userMenu(userSelection, &currentValue);
+	userSelection = userMenu(userSelection, &currentValue, &bArray);
+
 	switch (userSelection){
 	case 1:
 		//asm func add
@@ -32,6 +33,10 @@ int main(int argc, const char* argv[])
 	case 6: 
 		exit(1);
 		break;
+	}
+
+	for (int i = 0; i < 255; i++) {
+		printf("%d, ", bArray[i]);
 	}
 
 	printf("%d\n", currentValue);
