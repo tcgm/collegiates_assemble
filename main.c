@@ -1,12 +1,16 @@
 #include "stdio.h"
 
 int userMenu(int userSelection, int*);
+
 int settings(int);
-int main(void)
+
+int main(int argc, const char* argv[])
 {
 	int userSelection = 0;
 	int currentValue = 0;
-	int precision = 0;
+	int precision = 1;
+
+	unsigned char bArray[255] = { 0 };
 
 	userSelection = userMenu(userSelection, &currentValue);
 	switch (userSelection){
@@ -31,12 +35,14 @@ int main(void)
 	}
 
 	printf("%d\n", currentValue);
+
+	return 0;
 }
 
-int userMenu(int userSelection, int *currentValue)
+int userMenu(int userSelection, int *currentValue, unsigned char *bArray)
 {
 	printf("Enter a value: \n");
-	scanf("%d", currentValue);
+	scanf("%d", bArray);
 
 
 	printf("1. Add\n");
